@@ -1,0 +1,43 @@
+{
+  "name": "surajadsul/appmarket",
+  "description": "This package will fetch information about app from play store and app store",
+  "homepage": "https://github.com/spatie/activitylog",
+  "keywords": [
+    "playstore",
+    "appstore",
+    "previewurl",
+    "appinfo",
+    "laravel"
+  ],
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Suraj Adsul",
+      "email": "surajadsul02@gmail.com",
+      "homepage": "https://laravelchannel.com",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=5.5.0",
+    "fabpot/goutte": "^3.2",
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^6.2|^7.0",
+    "orchestra/testbench": "~3.5.0|~3.6.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "SurajAdsul\\AppMarket\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "SurajAdsul\\AppMarket\\Test\\": "tests"
+    }
+  },
+  "scripts": {
+    "test": "vendor/bin/phpunit"
+  }
+}
