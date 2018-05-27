@@ -9,7 +9,17 @@ abstract class AbstractStoreInfo
     const APP_STORE_ID_ANDROID = 1;
     const APP_STORE_ID_APPLE = 2;
 
-    protected $previewUrl, $platform, $country, $storeId, $data, $name, $ratingStars = 0, $ratingCount = 0, $screenshots = [], $icon, $contentRating = '';
+    protected $previewUrl;
+    protected $platform;
+    protected $country;
+    protected $storeId;
+    protected $data;
+    protected $name;
+    protected $ratingStars = 0;
+    protected $ratingCount = 0;
+    protected $screenshots = [];
+    protected $icon;
+    protected $contentRating = '';
 
     /**
      * @param array $details
@@ -22,7 +32,6 @@ abstract class AbstractStoreInfo
     }
 
     abstract protected function lookup();
-
 
     final public function name()
     {
@@ -59,10 +68,11 @@ abstract class AbstractStoreInfo
 
     protected function addScheme($url, $scheme = 'http://')
     {
-        if (!preg_match("~^(?:f|ht)tps?://~i", $url)) {
+        if (! preg_match('~^(?:f|ht)tps?://~i', $url)) {
             $url = ltrim($url, '/'); //handle this url '//google.com'
-            $url = $scheme . $url;
+            $url = $scheme.$url;
         }
+
         return $url;
     }
 }
