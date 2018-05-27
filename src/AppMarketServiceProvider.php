@@ -6,15 +6,14 @@ use Illuminate\Support\ServiceProvider;
 
 class AppMarketServiceProvider extends ServiceProvider
 {
+
     /**
-     * Bootstrap services.
+     * Indicates if loading of the provider is deferred.
      *
-     * @return void
+     * @var bool
      */
-    public function boot()
-    {
-//        include __DIR__.'/routes.php';
-    }
+    protected $defer = true;
+
 
     /**
      * Register services.
@@ -23,6 +22,18 @@ class AppMarketServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->singleton('AppMarket', function () {
+            return new AppMarket();
+        });
+    }
+
+    /**
+     * Get the services provided by the provider.
+     *
+     * @return array
+     */
+    public function provides()
+    {
+        return ['AppMarket'];
     }
 }

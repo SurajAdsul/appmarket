@@ -11,10 +11,10 @@ class AppMarket
     const PLATFORM_IOS = 2;
 
 
-    public static function fetchAppDetails($previewUrl)
+    public function fetchAppDetails($previewUrl)
     {
 
-        $details = self::mobileAppStore($previewUrl);
+        $details = $this->mobileAppStore($previewUrl);
 
         switch ($details['platform']) {
             case self::PLATFORM_IOS:
@@ -30,7 +30,7 @@ class AppMarket
         return $appDetails;
     }
 
-    private static function mobileAppStore($previewUrl, $withCountry = false)
+    private function mobileAppStore($previewUrl, $withCountry = false)
     {
         $storeId = null;
         $platform = null;
