@@ -1,6 +1,6 @@
 <?php
 
 
-Route::get('calculator', function(){
+Route::get('calculator', function () {
     echo 'Hello from the calculator package!';
 });

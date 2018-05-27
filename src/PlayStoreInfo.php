@@ -4,7 +4,7 @@ namespace SurajAdsul\AppMarket;
 
 class PlayStoreInfo extends AbstractStoreInfo
 {
-    private static $lookupUrl = "https://play.google.com/store/apps/details?id=%s";
+    private static $lookupUrl = 'https://play.google.com/store/apps/details?id=%s';
 
     /**
      * @return array
@@ -18,7 +18,7 @@ class PlayStoreInfo extends AbstractStoreInfo
 
         $this->name = $crawler->filter('[itemprop="name"]')->text();
 
-        $crawler->filter('div.score-container meta')->each(function($node) {
+        $crawler->filter('div.score-container meta')->each(function ($node) {
             switch ($node->attr('itemprop')) {
                 case 'ratingValue':
                     $this->ratingStars = round($node->attr('content'));
@@ -32,7 +32,7 @@ class PlayStoreInfo extends AbstractStoreInfo
         $iconUrl = $crawler->filter('[itemprop="image"]')->attr('src');
         $this->icon = $this->addScheme($iconUrl);
 
-        $crawler->filter('[alt="Screenshot Image"]')->each(function($node) {
+        $crawler->filter('[alt="Screenshot Image"]')->each(function ($node) {
             $this->screenshots[] = $this->addScheme($node->attr('src'));
         });
     }

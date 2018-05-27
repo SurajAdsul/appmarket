@@ -2,7 +2,6 @@
 
 namespace SurajAdsul\AppMarket;
 
-
 class AppMarket
 {
     const ANDROID_SUBSTRING = '://play.google.com';
@@ -10,10 +9,8 @@ class AppMarket
     const PLATFORM_ANDROID = 1;
     const PLATFORM_IOS = 2;
 
-
     public function fetchAppDetails($previewUrl)
     {
-
         $details = $this->mobileAppStore($previewUrl);
 
         switch ($details['platform']) {
@@ -43,7 +40,7 @@ class AppMarket
             $storeId = $output['id'] ?: null;
             $platform = self::PLATFORM_ANDROID;
         } elseif (preg_match(self::IOS_REGEX, $previewUrl, $matches)) {
-            $storeId = !empty($matches['id']) ? $matches['id'] : null;
+            $storeId = ! empty($matches['id']) ? $matches['id'] : null;
             $platform = self::PLATFORM_IOS;
         }
 
@@ -54,5 +51,4 @@ class AppMarket
 
         return $data;
     }
-
 }

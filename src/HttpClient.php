@@ -12,8 +12,8 @@ class HttpClient extends Client
             'defaults' => [
                 'headers' => [
                     'User-Agent' => 'Other',
-                ]
-            ]
+                ],
+            ],
         ];
 
         parent::__construct(array_merge($defaults, $config));
