@@ -6,7 +6,6 @@ use SurajAdsul\AppMarket\AppMarket;
 
 class AppMarketTest extends TestCase
 {
-
     protected $newsletterList;
 
     public function setUp()
@@ -16,17 +15,15 @@ class AppMarketTest extends TestCase
     }
 
     /** @test */
-    function test_it_can_determine_the_name_of_the_app()
+    public function test_it_can_determine_the_name_of_the_app()
     {
         $this->assertEquals('Instagram', $this->appdetails->name());
     }
 
-
     /** @test */
-    function test_it_can_get_the_screenshots_of_the_app()
+    public function test_it_can_get_the_screenshots_of_the_app()
     {
         $this->assertArrayHasKey('stars', $this->appdetails->rating());
         $this->assertArrayHasKey('count', $this->appdetails->rating());
     }
-
 }
